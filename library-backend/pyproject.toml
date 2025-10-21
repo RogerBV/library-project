@@ -1,0 +1,25 @@
+[project]
+name = "library-backend"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "roger.barriga",email = "roger.barriga@scribsoft.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "django (>=5.1,<6.0.0)",
+    "djangorestframework (>=3.16.1,<4.0.0)",
+    "psycopg2-binary (>=2.9.0,<3.0.0)",
+    "python-dotenv (>=1.0.0,<2.0.0)",
+    "langchain (>=0.3.0,<0.4.0)",
+    "langchain-openai (>=0.2.0,<0.3.0)",
+    "langchain-community (>=0.3.30,<0.4.0)",
+    "django-cors-headers (>=4.3.1,<5.0.0)",
+    "djangorestframework-simplejwt (>=5.5.1,<6.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
