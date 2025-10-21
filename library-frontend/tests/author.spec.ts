@@ -7,7 +7,7 @@ test('Testing Loading And New Author Save', async ({ page }) => {
 
   const username = process.env.DJANGO_SUPERUSER_USERNAME || ''
   const password = process.env.DJANGO_SUPERUSER_PASSWORD || ''
-  console.log("Username: ", username)
+  
   await page.goto('http://localhost:3000');
   
   await expect(page.locator('text=Iniciar Sesión')).toBeVisible();
@@ -20,13 +20,6 @@ test('Testing Loading And New Author Save', async ({ page }) => {
 
   const btnLogin = page.locator('#btnLogin')
   await btnLogin.click()
-
-  
-  //await page.screenshot({ path: 'screenshots/homepage.png', fullPage: true });
-  //await expect(loadingDiv).toBeVisible({ timeout: 8000 })
-  
-  //await expect(loadingDiv).toBeHidden();
-
   
   await page.waitForURL('**/authors', { timeout: 10000 });
   
@@ -46,7 +39,6 @@ test('Testing Loading And New Author Save', async ({ page }) => {
 
   await expect(page.locator('text=Saved Author')).toBeVisible()
 
-  //await expect(page.locator('text=List of Authors')).toBeVisible({ timeout: 5000 });
   await page.screenshot({ path: 'screenshots/homepage.png', fullPage: true });
 
 });
