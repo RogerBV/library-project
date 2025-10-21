@@ -54,8 +54,8 @@ jobs:
 
       - name: Run migrations
         env:
-          DB_NAME: ${{ secrets.POSTGRES_DB }}
-          DB_USER: ${{ secrets.POSTGRES_USER }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           DB_HOST: library-database
           DB_PORT: 5432
