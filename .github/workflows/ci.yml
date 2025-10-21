@@ -8,7 +8,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_HOST: library-database
+      DB_PORT: 5432
+      NEXT_PUBLIC_FRONTEND_PORT: ${{ secrets.NEXT_PUBLIC_FRONTEND_PORT }}
+      NEXT_PUBLIC_BACKEND_PORT: ${{ secrets.NEXT_PUBLIC_BACKEND_PORT }}
+      NEXT_PUBLIC_BACKEND_HOST: ${{ secrets.NEXT_PUBLIC_BACKEND_HOST }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
+      DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
+      DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
