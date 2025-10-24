@@ -39,10 +39,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'http://localhost:8000']
+CORS_ALLOWED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}"]
 
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", 'http://localhost:8000']
+CSRF_TRUSTED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}"]
 
 # Application definition
 
