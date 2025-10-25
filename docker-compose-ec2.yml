@@ -4,9 +4,6 @@ services:
       context: ./library-backend
       target: migration
       dockerfile: ./Dockerfile
-    depends_on:
-      library-database:
-        condition: service_healthy
     environment:
       - DJANGO_SETTINGS_MODULE=library_backend.settings
       - DB_NAME=${DB_NAME}
