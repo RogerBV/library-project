@@ -1,9 +1,6 @@
 import { makeRequest } from "@/app/common/request";
 
-const SERVER_NAME = process.env.NEXT_PUBLIC_BACKEND_HOST
-const PORT = process.env.NEXT_PUBLIC_BACKEND_PORT
-
-const URL = `http://${SERVER_NAME}:${PORT}/api/authors/`
+const URL = `api/authors/`
 
 export const saveAuthorEndpoint = async (authorName: string) => {
     const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;

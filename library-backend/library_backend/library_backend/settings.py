@@ -31,18 +31,17 @@ DJANGO_SUPERUSER_EMAIL = os.getenv("DJANGO_SUPERUSER_EMAIL")
 DJANGO_SUPERUSER_PASSWORD = os.getenv("DJANGO_SUPERUSER_PASSWORD")
 FRONTEND_PORT = os.getenv('NEXT_PUBLIC_FRONTEND_PORT')
 BACKEND_PORT = os.getenv("NEXT_PUBLIC_BACKEND_PORT")
-
-print(f"FRONTEND PORT: {FRONTEND_PORT}")
+BACKEND_HOST = os.getenv("NEXT_PUBLIC_BACKEND_HOST")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}"]
+CORS_ALLOWED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}", BACKEND_HOST]
 
 CORS_ALLOW_CREDENTIALS = True
-CSRF_TRUSTED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}"]
+CSRF_TRUSTED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}", BACKEND_HOST]
 
 # Application definition
 

@@ -2,13 +2,10 @@
 
 import { makeRequest } from "@/app/common/request";
 
-const SERVER_NAME = process.env.NEXT_PUBLIC_BACKEND_HOST
-const PORT = process.env.NEXT_PUBLIC_BACKEND_PORT
-
 export const listBooks = async () => {
 
     const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
-    const response = await makeRequest(`http://${SERVER_NAME}:${PORT}/api/books/`, {
+    const response = await makeRequest(`api/books/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
