@@ -64,12 +64,12 @@ export default function Login() {
       { loading && <Loading /> }
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">
-          Iniciar Sesión
+          Login
         </h1>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-gray-700 mb-2" htmlFor="email">
-              Correo electrónico
+              User Name
             </label>
             <input
               id="username"
@@ -78,12 +78,12 @@ export default function Login() {
               onChange={(e) => setUserName(e.target.value)}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="ejemplo@correo.com"
+              placeholder="User Name"
             />
           </div>
           <div>
             <label className="block text-gray-700 mb-2" htmlFor="password">
-              Contraseña
+              Password
             </label>
             <input
               id="password"

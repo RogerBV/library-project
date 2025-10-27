@@ -1,5 +1,9 @@
+const SERVER_NAME = process.env.NEXT_PUBLIC_BACKEND_HOST
+const PORT = process.env.NEXT_PUBLIC_BACKEND_PORT
+
 export const makeRequest = async (url: string, objRequestOptions: object) => {
-    const response = await fetch(url, objRequestOptions)
+    const baseUrl = `http://${SERVER_NAME}:${PORT}`
+    const response = await fetch(`${baseUrl}/${url}`, objRequestOptions)
     if (response.status == 401) {
         document.cookie.split(";").forEach((cookie) => {
             const eqPos = cookie.indexOf("=");
