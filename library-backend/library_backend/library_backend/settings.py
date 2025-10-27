@@ -38,7 +38,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}", f"{BACKEND_HOST}"]
+CORS_ALLOWED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}", f"http://${BACKEND_HOST}"]
 
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [f"http://localhost:{FRONTEND_PORT}", f"http://localhost:{BACKEND_PORT}"]
