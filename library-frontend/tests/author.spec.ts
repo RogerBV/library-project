@@ -10,7 +10,7 @@ test('Testing Loading And New Author Save', async ({ page }) => {
   
   await page.goto('http://localhost:3000');
   
-  await expect(page.locator('text=Login')).toBeVisible();
+  await expect(page.locator('text=Login').first()).toBeVisible();
 
   const usernameField = page.locator('#username')
   await usernameField.fill(username)
