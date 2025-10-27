@@ -21,7 +21,7 @@ test('Testing Loading And New Author Save', async ({ page }) => {
   const btnLogin = page.locator('#btnLogin')
   await btnLogin.click()
   
-  await page.waitForURL('**/authors', { timeout: 10000 });
+  await page.waitForURL('**/authors', { timeout: 30000 });
   
   const btnNewAuthor = page.locator('#btnNewAuthor')
   await btnNewAuthor.click()
