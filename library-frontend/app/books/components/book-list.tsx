@@ -1,13 +1,16 @@
 'use client'
 
+import DeleteBookModal from "@/app/books/components/delete-book-modal";
 import { IBook } from "@/app/authors/interfaces/book.interface";
 
 
-interface ListBooksProps {
+interface BookListProps {
     booksParam: IBook[]
+    openViewParam: (bookId: number) => void
+    getBooksParam: () => void
 }
 
-export default function ListBooks({ booksParam }: ListBooksProps) {
+export default function BookList({ booksParam, openViewParam, getBooksParam }: BookListProps) {
 
     return (
         <div className="w-full">
@@ -77,19 +80,16 @@ export default function ListBooks({ booksParam }: ListBooksProps) {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <div className="invisible flex items-center justify-end space-x-2">
-                                                <button className="inline-flex items-center px-3 py-2 border border-transparent text-xs font-medium rounded-lg text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-150">
+                                            <div className="flex items-center justify-end space-x-2">
+                                                <button className="inline-flex items-center px-3 py-2 border border-transparent text-xs font-medium rounded-lg text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-150"
+                                                    onClick={() => openViewParam(book.id)}
+                                                >
                                                     <svg className="h-3 w-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                     </svg>
                                                     Edit
                                                 </button>
-                                                <button className="inline-flex items-center px-3 py-2 border border-transparent text-xs font-medium rounded-lg text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors duration-150">
-                                                    <svg className="h-3 w-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                    </svg>
-                                                    Delete
-                                                </button>
+                                                <DeleteBookModal bookParam={book} getBooksParam={getBooksParam} />
                                             </div>
                                         </td>
                                     </tr>
@@ -102,7 +102,7 @@ export default function ListBooks({ booksParam }: ListBooksProps) {
                     <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
                         <div className="flex items-center justify-between">
                             <div className="text-sm text-gray-700">
-                                Mostrando <span className="font-medium">{booksParam.length}</span> de <span className="font-medium">{booksParam.length}</span> autores
+                                Showing <span className="font-medium">{booksParam.length}</span> de <span className="font-medium">{booksParam.length}</span> authors
                             </div>
                             <div className="invisible flex items-center space-x-2">
                                 <button className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-150">

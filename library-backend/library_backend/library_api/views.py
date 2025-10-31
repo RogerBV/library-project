@@ -52,12 +52,10 @@ class AuthorListCreateView(generics.ListCreateAPIView):
         name = validated_data['name']
         
         author_list = Author.objects.filter(name=name)
-        
         llm = ChatOpenAI(model="gpt-4", temperature=0)
         
         if len(author_list) > 0:
             raise CustomValidation('This author is already registered.', 'username', status_code=status.HTTP_409_CONFLICT)
-        
         
         prompt = f"Return a list with the titles of the books of {name} in JSON format. The titles should be written in spanish"
         response = llm([HumanMessage(content=prompt)])
@@ -67,7 +65,6 @@ class AuthorListCreateView(generics.ListCreateAPIView):
         except json.JSONDecodeError:
             raise CustomValidation('The object can not be parsed to a json list', 'username', status_code=status.HTTP_409_CONFLICT)
             books = []
-
 
         if len(books)>0:
             author = serializer.save()
@@ -88,7 +85,7 @@ class BookListCreateView(generics.ListCreateAPIView):
     GET: List all books
     POST: Create a new book
     """
-    queryset = Book.objects.all()
+    queryset = Book.objects.filter(status=1).order_by('id')
     serializer_class = BookSerializer
 
 class BookDetailView(generics.RetrieveUpdateDestroyAPIView):

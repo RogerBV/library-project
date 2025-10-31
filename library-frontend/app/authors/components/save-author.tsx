@@ -76,7 +76,7 @@ export default function SaveAuthor({ onListAuthors }: SaveAuthorProps) {
                                         id="authorName"
                                         name="authorName"
                                         placeholder="Enter the author name"
-                                        className="block w-full pl-10 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500 bg-gray-50 hover:bg-white focus:bg-white"
+                                        className="block w-full pl-10 pr-4 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-500 bg-gray-50 hover:bg-white focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
                                         value={authorName}
                                         onChange={(e) => setAuthorName(e.target.value)}
                                     />

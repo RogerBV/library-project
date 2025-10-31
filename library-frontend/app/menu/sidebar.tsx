@@ -4,13 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-/*
-interface SidebarProps {
-  activeView: string;
-  onViewChange: (view: string) => void;
-}*/
-
-//export default function Sidebar({ activeView, onViewChange }: SidebarProps) {
 export default function Sidebar() {
   const pathname = usePathname();
   const isActive = (path: string) =>
@@ -22,7 +15,7 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside className="w-64 bg-gray-800 text-gray-100 min-h-screen">
         <div className="p-6 text-2xl font-bold border-b border-gray-700">
-          Mi App
+          Library System
         </div>
         <nav className="mt-6">
           <ul>
