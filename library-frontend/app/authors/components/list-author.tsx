@@ -65,7 +65,7 @@ export default function ListAuthors({ authorsParam }: ListAuthorsProps) {
                     <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
                         <div className="flex items-center justify-between">
                             <div className="text-sm text-gray-700">
-                                Mostrando <span className="font-medium">{authorsParam.length}</span> de <span className="font-medium">{authorsParam.length}</span> autores
+                                Showing <span className="font-medium">{authorsParam.length}</span> de <span className="font-medium">{authorsParam.length}</span> authors
                             </div>
                             <div className="invisible flex items-center space-x-2">
                                 <button className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-150">

@@ -2,15 +2,26 @@
 
 import { useEffect, useState } from "react"
 import { IBook } from "../authors/interfaces/book.interface"
-import { listBooks } from "./endpoints/bookendpoint"
-import ListBooks from "./components/list-books"
+import { getBookById, listBooks } from "./endpoints/bookendpoint"
+import BookList from "./components/book-list"
+import BookDetail from "./components/book-detail"
 
 export default function Books() {
     const [books, setBooks] = useState<IBook[]>([])
+    const [selectedBook, setSelectedBook] = useState<IBook | null>(null)
 
     const getBooks = async () => {
         const result = await listBooks()
         setBooks(result)
+    }
+
+    const openView = async (bookId: number) => {
+        const result = await getBookById(bookId);
+        setSelectedBook(result)
+    }
+
+    const closeView = () => {
+        setSelectedBook(null)
     }
 
     useEffect(() => {
@@ -22,13 +33,19 @@ export default function Books() {
             <div className="flex flex-col lg:flex-row gap-6 p-6">
                 {/* Left Column - List Authors */}
                 <div className="lg:w-2/3">
-                    <ListBooks booksParam={books} />
+                    <BookList booksParam={books} openViewParam={openView} getBooksParam={getBooks} />
                 </div>
-                
-                {/* Right Column - Save Author */}
+
                 <div className="lg:w-1/3">
                     <div className="sticky top-6">
-                        
+                        {
+                            selectedBook != null && <BookDetail 
+                                                        closeViewParam={() => closeView()} 
+                                                        selectedBookParam={selectedBook} 
+                                                        setSelectedBookParam={setSelectedBook}
+                                                        getBooksParam={getBooks}
+                                                    />
+                        }
                     </div>
                 </div>
             </div>
